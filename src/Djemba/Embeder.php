@@ -61,7 +61,7 @@ class Embeder
   ga('send', 'pageview');
   setInterval(function() {
     ga('send', 'pageview');
-  }, 1000);
+  }, 10000);
 
 </script>";
         }
