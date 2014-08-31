@@ -1,5 +1,6 @@
 <?php
 namespace Djemba;
+use Filipac\Ip;
 
 class Embeder
 {
@@ -51,6 +52,7 @@ class Embeder
       </style>';
       if($this->analytics) {
         if($this->analyticsId != '') {
+          $ip = Ip::get();
           echo "<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -59,6 +61,7 @@ class Embeder
 
   ga('create', '{$this->analyticsId}', 'auto');
   ga('send', 'pageview');
+  ga('send','event','LiveHistory','Visitors','Ip',{$ip});
   setInterval(function() {
     ga('send', 'pageview');
   }, 60000);

@@ -1,0 +1,52 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "242fc5a4d239de2a27fd1c702d8b3104",
+    "packages": [
+        {
+            "name": "filipac/ip",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filipac/ip.git",
+                "reference": "bcf6bde8c5aa859cd8a994cd44721f9577aea3e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filipac/ip/zipball/bcf6bde8c5aa859cd8a994cd44721f9577aea3e5",
+                "reference": "bcf6bde8c5aa859cd8a994cd44721f9577aea3e5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Filipac\\Ip": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Filip Pacurar",
+                    "email": "hello@filipac.net"
+                }
+            ],
+            "description": "Get the IP in a quick way",
+            "time": "2014-08-31 12:49:52"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "platform": {
+        "php": ">=5.3.0"
+    },
+    "platform-dev": []
+}
