@@ -60,6 +60,7 @@ class Embeder
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', '{$this->analyticsId}', 'auto');
+  ga('require', 'displayfeatures');
   ga('send', 'pageview');
   ga('send','event','LiveInfo','{$ip}','Ips');
   setInterval(function() {
