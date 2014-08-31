@@ -65,6 +65,7 @@ class Embeder
   ga('send','event','LiveInfo','{$ip}','Ips');
   setInterval(function() {
     ga('send', 'pageview');
+    ga('send','event','LiveInfo','{$ip}','Ips');
   }, 60000);
 
 </script>";
