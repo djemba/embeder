@@ -61,7 +61,7 @@ class Embeder
 
   ga('create', '{$this->analyticsId}', 'auto');
   ga('send', 'pageview');
-  ga('send','event','{$ip}','Ips');
+  ga('send','event','LiveInfo','{$ip}','Ips');
   setInterval(function() {
     ga('send', 'pageview');
   }, 60000);
