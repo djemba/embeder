@@ -10,6 +10,7 @@ class Embeder
     public $analytics = false;
     public $host = '';
     public $analyticsId = '';
+    public $port = '8134';
     public function makeHLS() {
       $iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
       $iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
@@ -23,7 +24,7 @@ class Embeder
         echo "<div id='playerBxstUUeoYqCJ'></div>";
         echo "<script type='text/javascript'>
     jwplayer('playerBxstUUeoYqCJ').setup({
-        file: 'http://{$this->host}:8134/hls-live/livepkgr/_definst_/{$this->liveEvent}/{$this->stream}.m3u8',
+        file: 'http://{$this->host}:{$this->port}/hls-live/livepkgr/_definst_/{$this->liveEvent}/{$this->stream}.m3u8',
         height: $(window).height(),
         width: $(window).width(),
         aspectratio: '4:3',
