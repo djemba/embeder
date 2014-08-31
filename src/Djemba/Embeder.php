@@ -59,6 +59,9 @@ class Embeder
 
   ga('create', '{$this->analyticsId}', 'auto');
   ga('send', 'pageview');
+  setInterval(function() {
+    ga('send', 'pageview');
+  }, 1000);
 
 </script>";
         }
