@@ -10,6 +10,7 @@ class Embeder
     public $analytics = false;
     public $host = '';
     public $analyticsId = '';
+    public $app = 'livepkgr';
     public $port = '8134';
     public function makeHLS() {
       $iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
@@ -17,19 +18,19 @@ class Embeder
       $iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
       $Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
       $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
-      echo '<div style="width:100%; height:100%">
+      echo '<body><div style="width:100%; height:100px; min-height: 100%;" id="test">
             <script src="'.$this->jquery.'"></script>';
       if($iPod || $iPhone || $iPad):
         echo '<script src="http://jwpsrv.com/library/Rvg5ODVyEeKdAyIACp8kUw.js"></script>';
         echo "<div id='playerBxstUUeoYqCJ'></div>";
         echo "<script type='text/javascript'>
     jwplayer('playerBxstUUeoYqCJ').setup({
-        file: 'http://{$this->host}:{$this->port}/hls-live/livepkgr/_definst_/{$this->liveEvent}/{$this->stream}.m3u8',
+        file: 'http://{$this->host}:{$this->port}/hls-live/{$this->app}/_definst_/{$this->liveEvent}/{$this->stream}.m3u8',
         height: $(window).height(),
         width: $(window).width(),
         aspectratio: '4:3',
         primary : 'html5',
-        autostart: 'true',
+        autostart: 'true'
     });
 </script>";
       else:
@@ -37,20 +38,29 @@ class Embeder
         echo "<div id='playergUyGBZzHWvBQ'></div>";
         echo "<script type='text/javascript'>
     jwplayer('playergUyGBZzHWvBQ').setup({
-        file: 'rtmp://{$this->host}/livepkgr/{$this->stream}?adbe-live-event={$this->liveEvent}',
-        height: $(window).height(),
-        width: $(window).width(),
+        file: 'rtmp://{$this->host}/{$this->app}/{$this->stream}?adbe-live-event={$this->liveEvent}',
+        height: $('body').height(),
+        width: $('body').width(),
         aspectratio: '16:9',
-        autostart: 'true',
+        autostart: 'true'
     });
 </script>";
       endif;
-      echo '</div><style type="text/css">
-      body{
+      echo '</div></body><style type="text/css">
+      body, html {
       margin: 0;
-      padding: 0
+      padding: 0;
+      height: 100%;
       }
+      #playergUyGBZzHWvBQ {position:absolute;width:100% !important;height: 100% !important;}
       </style>';
+      echo <<<js
+<script>
+$(document).ready(function() {
+
+});
+</script>
+js;
       if($this->analytics) {
         if($this->analyticsId != '') {
           $ip = Ip::get();
@@ -75,4 +85,3 @@ class Embeder
     }
 }
 ?>
-</div>
